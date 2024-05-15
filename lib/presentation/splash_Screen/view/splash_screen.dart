@@ -1,6 +1,9 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:up_to_do/core/constants/color_constants.dart';
+import 'package:up_to_do/presentation/onboarding_Screen/view/onboarding_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -10,6 +13,13 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  void initState() {
+    Timer(Duration(seconds: 3), () {
+      Navigator.of(context).pushReplacement(
+          MaterialPageRoute(builder: (context) => OnboardingScreen()));
+    });
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.sizeOf(context);
